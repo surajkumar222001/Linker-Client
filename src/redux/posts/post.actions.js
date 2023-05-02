@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import axios from "axios";
+
 import * as alertActions from '../alerts/alert.actions';
 
 import * as userUtil from "../../util/userUtil";
@@ -44,7 +44,7 @@ export const getAllPosts = () => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : GET_ALL_POSTS_REQUEST});
-                let dataUrl = `/api/posts/`;
+                let dataUrl = `https://linker-social-server.onrender.com/api/posts/`;
                 let response = await Axios.get(dataUrl);
                 dispatch({type : GET_ALL_POSTS_SUCCESS, payload : response.data});
             }
@@ -63,7 +63,7 @@ export const createPost = (post) => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : CREATE_POST_REQUEST});
-                let dataUrl = `/api/posts/`;
+                let dataUrl = `https://linker-social-server.onrender.com/api/posts/`;
                 let response = await Axios.post(dataUrl, post);
                 dispatch({type : CREATE_POST_SUCCESS, payload : response.data});
             }
@@ -84,7 +84,7 @@ export const getPost = (postId) => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : GET_POST_REQUEST});
-                let dataUrl = `/api/posts/${postId}`;
+                let dataUrl = `https://linker-social-server.onrender.com/api/posts/${postId}`;
                 let response = await Axios.get(dataUrl);
                 dispatch({type : GET_POST_SUCCESS, payload : response.data});
             }
@@ -103,7 +103,7 @@ export const deletePost = (postId) => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : DELETE_POST_REQUEST});
-                let dataUrl = `/api/posts/${postId}`;
+                let dataUrl = `https://linker-social-server.onrender.com/api/posts/${postId}`;
                 let response = await Axios.delete(dataUrl);
                 dispatch({type : DELETE_POST_SUCCESS, payload : response.data});
                 dispatch(alertActions.setAlert('Post is Deleted' , 'success'));
@@ -123,7 +123,7 @@ export const likePost = (postId) => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : LIKE_POST_REQUEST});
-                let dataUrl = `/api/posts/like/${postId}`;
+                let dataUrl = `https://linker-social-server.onrender.com/api/posts/like/${postId}`;
                 let response = await Axios.put(dataUrl, postId);
                 dispatch({type : LIKE_POST_SUCCESS, payload : response.data});
             }
@@ -142,7 +142,7 @@ export const unlikePost = (postId) => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : UNLIKE_POST_REQUEST});
-                let dataUrl = `/api/posts/unlike/${postId}`;
+                let dataUrl = `https://linker-social-server.onrender.com/api/posts/unlike/${postId}`;
                 let response = await Axios.put(dataUrl, postId);
                 dispatch({type : UNLIKE_POST_SUCCESS, payload : response.data});
             }
@@ -161,7 +161,7 @@ export const createComment = (comment, postId) => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : CREATE_COMMENT_REQUEST});
-                let dataUrl = `/api/posts/comment/${postId}`;
+                let dataUrl = `https://linker-social-server.onrender.com/api/posts/comment/${postId}`;
                 let response = await Axios.post(dataUrl, comment);
                 dispatch({type : CREATE_COMMENT_SUCCESS, payload : response.data});
             }
@@ -180,7 +180,7 @@ export const deleteComment = (postId, commentId) => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : DELETE_COMMENT_REQUEST});
-                let dataUrl = `/api/posts/comment/${postId}/${commentId}`;
+                let dataUrl = `https://linker-social-server.onrender.com/api/posts/comment/${postId}/${commentId}`;
                 let response = await Axios.delete(dataUrl);
                 dispatch({type : DELETE_COMMENT_SUCCESS, payload : response.data});
             }

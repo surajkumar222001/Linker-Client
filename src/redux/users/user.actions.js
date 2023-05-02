@@ -23,7 +23,7 @@ export const registerUser = (user, history) => {
     return async (dispatch) => {
         try {
             dispatch({type : REGISTER_USER_REQUEST});
-            let dataUrl = `/api/users/register`;
+            let dataUrl = `https://linker-social-server.onrender.com/api/users/register`;
             let response = await Axios.post(dataUrl, user);
             dispatch({type : REGISTER_USER_SUCCESS , payload : response.data});
             dispatch(alertActions.setAlert('Registration is Success' , 'success'));
@@ -40,7 +40,7 @@ export const loginUser = (user, history) => {
     return async (dispatch) => {
         try {
             dispatch({type : LOGIN_USER_REQUEST});
-            let dataUrl = `/api/users/login`;
+            let dataUrl = `https://linker-social-server.onrender.com/api/users/login`;
             let response = await Axios.post(dataUrl, user);
             dispatch({type : LOGIN_USER_SUCCESS , payload : response.data});
             dispatch(alertActions.setAlert('Login is Success' , 'success'));
@@ -63,7 +63,7 @@ export const getUserInfo = () => {
                 authUtil.setAuthToken(token);
 
                 dispatch({type : GET_USER_INFO_REQUEST});
-                let dataUrl = `/api/users/me`;
+                let dataUrl = `https://linker-social-server.onrender.com/api/users/me`;
                 let response = await Axios.get(dataUrl);
                 dispatch({type : GET_USER_INFO_SUCCESS , payload : response.data});
             }

@@ -1,4 +1,5 @@
 import React , {useEffect}from 'react';
+
 import './App.css';
 import {BrowserRouter as Router , Route , Switch} from 'react-router-dom';
 import Navbar from "./layout/navbar/Navbar";
@@ -24,7 +25,7 @@ let App = () => {
 
     useEffect(() => {
         dispatch(userActions.getUserInfo());
-    }, []);
+    },[]);
 
   return (
     <React.Fragment>

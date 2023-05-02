@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.6.0",
     "axios": "^0.21.1",
     "digital": "^0.0.1",
+    "dotenv": "^16.0.3",
     "envelope": "^2.1.0",
     "mdbootstrap": "^4.19.2",
     "postcss-safe-parser": "^6.0.0",
@@ -48,6 +49,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "https://linker-social-server.onrender.com/"
+  }
 }

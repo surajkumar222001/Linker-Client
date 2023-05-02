@@ -1,4 +1,5 @@
 import Axios from 'axios';
+
 import * as userUtil from "../../util/userUtil";
 import * as authUtil from "../../util/authUtil";
 import * as alertActions from '../alerts/alert.actions';
@@ -51,7 +52,7 @@ export const getProfile = () => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : GET_PROFILE_REQUEST});
-                let dataUrl = '/api/profiles/me';
+                let dataUrl = 'https://linker-social-server.onrender.com/api/profiles/me';
                 let response = await Axios.get(dataUrl);
                 dispatch({type : GET_PROFILE_SUCCESS , payload : response.data});
             }
@@ -70,7 +71,7 @@ export const deleteExperience = (experienceId) => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : DELETE_EXPERIENCE_REQUEST});
-                let dataUrl = `/api/profiles/experience/${experienceId}`;
+                let dataUrl = `https://linker-social-server.onrender.com/api/profiles/experience/${experienceId}`;
                 let response = await Axios.delete(dataUrl);
                 dispatch({type : DELETE_EXPERIENCE_SUCCESS , payload : response.data});
                 dispatch(alertActions.setAlert('Experience is Deleted' , 'success'));
@@ -90,7 +91,7 @@ export const deleteEducation = (educationId) => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : DELETE_EDUCATION_REQUEST});
-                let dataUrl = `/api/profiles/education/${educationId}`;
+                let dataUrl = `https://linker-social-server.onrender.com/api/profiles/education/${educationId}`;
                 let response = await Axios.delete(dataUrl);
                 dispatch({type : DELETE_EDUCATION_SUCCESS , payload : response.data});
                 dispatch(alertActions.setAlert('Education is Deleted' , 'success'));
@@ -110,7 +111,7 @@ export const updateProfile = (profile , history) => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : UPDATE_PROFILE_REQUEST});
-                let dataUrl = '/api/profiles/';
+                let dataUrl = 'https://linker-social-server.onrender.com/api/profiles/';
                 let response = await Axios.put(dataUrl, profile);
                 dispatch({type : UPDATE_PROFILE_SUCCESS , payload : response.data});
                 dispatch(alertActions.setAlert('Profile is Updated' , 'success'));
@@ -131,7 +132,7 @@ export const createProfile = (profile , history) => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : CREATE_PROFILE_REQUEST});
-                let dataUrl = '/api/profiles/';
+                let dataUrl = 'https://linker-social-server.onrender.com/api/profiles/';
                 let response = await Axios.post(dataUrl, profile);
                 dispatch({type : CREATE_PROFILE_SUCCESS , payload : response.data});
                 dispatch(alertActions.setAlert('Profile is Created' , 'success'));
@@ -152,7 +153,7 @@ export const addExperience = (experience , history) => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : ADD_EXPERIENCE_REQUEST});
-                let dataUrl = '/api/profiles/experience/';
+                let dataUrl = 'https://linker-social-server.onrender.com/api/profiles/experience/';
                 let response = await Axios.put(dataUrl, experience);
                 dispatch({type : ADD_EXPERIENCE_SUCCESS , payload : response.data});
                 dispatch(alertActions.setAlert('Experience is Added' , 'success'));
@@ -173,7 +174,7 @@ export const addEducation = (education , history) => {
                 let token = userUtil.getToken();
                 authUtil.setAuthToken(token);
                 dispatch({type : ADD_EDUCATION_REQUEST});
-                let dataUrl = '/api/profiles/education/';
+                let dataUrl = 'https://linker-social-server.onrender.com/api/profiles/education/';
                 let response = await Axios.put(dataUrl, education);
                 dispatch({type : ADD_EDUCATION_SUCCESS , payload : response.data});
                 dispatch(alertActions.setAlert('Education is Added' , 'success'));
